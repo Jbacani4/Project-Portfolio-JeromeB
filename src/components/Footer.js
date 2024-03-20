@@ -8,12 +8,20 @@ function Footer() {
   return (
     <div className='footer'>
         <div className='socialMedia'>
+        <a href='https://www.instagram.com/jeromebaguette/' target='_blank' rel='noopener noreferrer'>
         <InstagramIcon />
-        <LinkedInIcon />
+        </a>
+        
+        <a href='https://github.com/Jbacani4' target='_blank' rel='noopener noreferrer'>
         <GitHubIcon />
+        </a>
+
+        <a href='https://www.linkedin.com/in/jerome-bacani-a7ab5a152/' target='_blank' rel='noopener noreferrer'>
+        <LinkedInIcon />
+        </a>
         </div>
         
-        <p> &copy; 2022 jeromeb</p>
+        <p> &copy; 2024 jeromeb</p>
     </div>
   )
 }
