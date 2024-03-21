@@ -6,7 +6,6 @@ import JavascriptIcon from '@mui/icons-material/Javascript';
 import HtmlIcon from '@mui/icons-material/Html';
 import CssIcon from '@mui/icons-material/Css';
 import DescriptionIcon from '@mui/icons-material/Description';
-//import profilePic from '../assets/pfpic.png';
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -26,26 +25,10 @@ const HomeContainer = styled.div`
     color: #f0f0f0;
     position: relative;
 
-    //.profilePic {
-    //  width: 120px; /* Adjust the size of the circular image */
-    //  height: 170px;
-    //  border-radius: 10%;
-    //  overflow: hidden;
-    //  position: absolute;
-    //  top: 30px; /* Position the image above the h2 element */
-    //  background-color: white;
-//
-    //  img {
-    //    width: 100%;
-    //    height: 100%;
-    //    object-fit: cover;
-    //  }
-    //}
-
     h2 {
       font-family: 'Poppins', sans-serif;
       font-size: 80px;
-      color: #e9d35b;
+      color: pink;
       height: 50px;
       margin-top: 50px;
       @media (max-width: 800px){ 
@@ -117,9 +100,6 @@ const Home = () => {
   return (
     <HomeContainer>
       <div className='hero'>
-      {/* <div className='profilePic'>
-          <img src={profilePic} alt='Profile' />
-        </div> */}
         <h2>Hello, Jerome here.</h2>
         <div className='prompt'>
           <p>
