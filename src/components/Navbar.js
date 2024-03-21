@@ -1,31 +1,88 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import "../styles/Navbar.css";
+import styled from 'styled-components';
 import ReorderIcon from '@material-ui/icons/Reorder';
 
-function Navbar() {
-    const [expandNavbar, setExpandNavbar] = useState(false);
-    const location = useLocation();
+const NavbarContainer = styled.div`
+  width: 100%;
+  height: 100px;
+  background: #38393d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  //padding: 0 20px;
+  z-index: 100;
 
-    useEffect(() =>{
-        setExpandNavbar(false);
-    }, [location]);
+  .links {
+    display: flex;
+    align-items: center;
 
-    return (
-    <div className='navbar' id={expandNavbar ? "open" : "close"}>
-        <div className='toggleButton'>
-            <button onClick={() => {setExpandNavbar((prev) => !prev)}}>
-                <ReorderIcon></ReorderIcon>
-            </button>
-        </div>
-        <div className='links'>
-            <Link to="/"> Home </Link>
-            <Link to="/about"> About </Link>
-            <Link to="/projects"> Projects </Link>
-            <Link to="/contact"> Contact </Link>
-        </div>
-    </div>
-  )
-}
+    a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+    }
+  }
 
-export default Navbar
+  .toggleButton {
+    display: none;
+
+    button {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 24px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .links {
+      display: ${(props) => (props.expanded ? 'flex' : 'none')};
+      flex-direction: column;
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100%;
+      background: #38393d;
+      padding: 20px;
+      z-index: 10;
+
+      a {
+        margin: 10px 0;
+      }
+    }
+
+    .toggleButton {
+      display: flex;
+    }
+  }
+`;
+
+const Navbar = () => {
+  const [expanded, setExpanded] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setExpanded(false);
+  }, [location]);
+
+  return (
+    <NavbarContainer expanded={expanded}>
+      <div className='toggleButton'>
+        <button onClick={() => setExpanded((prev) => !prev)}>
+          <ReorderIcon />
+        </button>
+      </div>
+      <div className='links'>
+        <Link to='/'>Home</Link>
+        <Link to='/about'>About</Link>
+        <Link to='/projects'>Projects</Link>
+        <Link to='/contact'>Contact</Link>
+      </div>
+    </NavbarContainer>
+  );
+};
+
+export default Navbar;
