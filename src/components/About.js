@@ -35,10 +35,11 @@ const AboutContainer = styled.div`
     background-color: #27282b;
     color: #f0f0f0;
     position: relative;
-    padding: 20px; 
+    padding: 0px; 
 
     @media (max-width: 768px) {
       flex-direction: column;
+      
     }
 
     .profilePic {
@@ -60,6 +61,7 @@ const AboutContainer = styled.div`
       width: 40%; 
       font-size: 30px;
       text-align: left;
+      padding: 5px;
 
     .accent {
       
